@@ -50,6 +50,14 @@ class ViewController: UIViewController {
         button2.addTarget(self, action: #selector(ViewController.decrementCount),
                          for: UIControlEvents.touchUpInside)
         
+        var button3 = UIButton()
+        button3.frame = CGRect.init(x: 150, y: 350, width: 130, height: 60)
+        button3.setTitle("Change color", for: .normal)
+        button3.setTitleColor( UIColor.blue, for: .normal)
+        self.view.addSubview(button3)
+        button3.addTarget(self, action: #selector(ViewController.changeColor),
+                          for: UIControlEvents.touchUpInside)
+        
         
     }
 
@@ -68,6 +76,15 @@ class ViewController: UIViewController {
         self.count = self.count - 1
         self.label.text = "\(self.count)"
         self.label2.text = "\(self.count)"
+    }
+    
+    @objc func changeColor() {
+        // Toogle color
+        if self.view.backgroundColor == UIColor.white {
+            self.view.backgroundColor = UIColor.green
+        } else {
+            self.view.backgroundColor = UIColor.white
+        }
     }
 
 }
